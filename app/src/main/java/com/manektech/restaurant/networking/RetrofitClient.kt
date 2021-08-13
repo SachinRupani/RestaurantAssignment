@@ -7,6 +7,9 @@ import retrofit2.http.GET
 
 interface RetrofitClient {
 
+    /**
+     * Endpoint to fetch the list of restaurants
+     */
     @GET("restaurants_list")
     suspend fun getRestaurantList(): Response<RestaurantListApiResponseContainer>
 

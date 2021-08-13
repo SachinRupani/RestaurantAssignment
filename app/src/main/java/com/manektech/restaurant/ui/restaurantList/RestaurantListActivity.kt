@@ -1,11 +1,14 @@
 package com.manektech.restaurant.ui.restaurantList
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.manektech.restaurant.MyApplication
 import com.manektech.restaurant.R
 import com.manektech.restaurant.data.local.entities.RestaurantLocalModel
@@ -32,6 +35,21 @@ class RestaurantListActivity : AppCompatActivity() {
         attachObservers()
         fetchRestaurantList()
         handleClicks()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        when (newConfig.orientation) {
+            Configuration.ORIENTATION_LANDSCAPE -> {
+                binding?.rvRestaurantList?.layoutManager = GridLayoutManager(applicationContext, 2)
+            }
+            Configuration.ORIENTATION_PORTRAIT -> {
+                binding?.rvRestaurantList?.layoutManager = LinearLayoutManager(applicationContext)
+            }
+            else -> {
+                binding?.rvRestaurantList?.layoutManager = LinearLayoutManager(applicationContext)
+            }
+        }
     }
 
     /**

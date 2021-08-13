@@ -3,7 +3,6 @@ package com.manektech.restaurant.ui.restaurantDetails
 import androidx.lifecycle.*
 import com.manektech.restaurant.MyApplication
 import com.manektech.restaurant.data.local.entities.RestaurantLocalModel
-import com.manektech.restaurant.ui.restaurantList.RestaurantListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

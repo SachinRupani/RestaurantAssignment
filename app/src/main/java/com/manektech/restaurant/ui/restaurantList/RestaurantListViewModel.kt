@@ -26,7 +26,7 @@ class RestaurantListViewModel(private val application: MyApplication) : ViewMode
      * true => Currently fetching from API or Local DB
      * false => Fetching completed/failed
      */
-    private val _isLoading = MutableLiveData<Boolean>(false)
+    private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 

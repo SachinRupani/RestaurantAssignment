@@ -5,7 +5,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.manektech.restaurant.R
@@ -46,9 +45,9 @@ fun Context.isNetworkOnline(): Boolean {
  */
 fun View.showRedErrorSnackBar(strErrMsg: String) {
     Snackbar.make(this, strErrMsg, Snackbar.LENGTH_LONG).apply {
-        /*val snackBarTextView =
+        val snackBarTextView =
             view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView?
-        snackBarTextView?.setTextColor(ContextCompat.getColor(view.context, R.color.fix_red_error))*/
+        snackBarTextView?.setTextColor(ContextCompat.getColor(view.context, R.color.fix_red_error))
         show()
     }
 }

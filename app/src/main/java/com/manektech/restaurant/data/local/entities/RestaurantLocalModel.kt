@@ -2,7 +2,6 @@ package com.manektech.restaurant.data.local.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "restaurant_local_model")
