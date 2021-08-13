@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.manektech.restaurant.data.local.entities.RestaurantLocalModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cnsLayoutItemParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:paddingVertical="12dp"
+            android:paddingStart="13dp"
+            android:paddingEnd="16dp">
+
+            <!--Image Restaurant-->
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imgRestaurant"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:contentDescription="@{model.title ?? ``}"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:restaurantImage="@{model}"
+                app:riv_corner_radius="5dp" />
+
+            <!--Title And Rating Section-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/imgRestaurant"
+                app:layout_constraintEnd_toStartOf="@+id/imgLocationPin"
+                app:layout_constraintStart_toEndOf="@+id/imgRestaurant"
+                app:layout_constraintTop_toTopOf="@+id/imgRestaurant">
+
+                <!--Title Restaurant-->
+                <TextView
+                    android:id="@+id/txtRestaurantTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_bold"
+                    android:maxLines="2"
+                    android:text="@{model.title ?? ``}"
+                    android:textSize="16sp"
+                    tools:text="@string/app_name" />
+
+                <!--Rating Bar-->
+                <com.willy.ratingbar.ScaleRatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:restaurantRating="@{model}"
+                    app:srb_clearRatingEnabled="false"
+                    app:srb_clickable="false"
+                    app:srb_drawableEmpty="@drawable/ic_star_empty"
+                    app:srb_drawableFilled="@drawable/ic_star_filled"
+                    app:srb_minimumStars="0"
+                    app:srb_isIndicator="true"
+                    app:srb_scrollable="false"
+                    app:srb_starHeight="18dp"
+                    app:srb_starPadding="2dp"
+                    app:srb_starWidth="18dp"
+                    app:srb_stepSize="1" />
+
+            </LinearLayout>
+
+
+            <!--Location Pin-->
+            <ImageView
+                android:id="@+id/imgLocationPin"
+                android:layout_width="42dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_location_pin_box_green"
+                android:contentDescription="@{model.address ?? ``}"
+                android:padding="9dp"
+                android:src="@drawable/ic_pin_white_stroked"
+                app:layout_constraintBottom_toBottomOf="@+id/imgRestaurant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgRestaurant" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

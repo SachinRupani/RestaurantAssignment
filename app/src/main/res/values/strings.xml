@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <!--Title Text-->
+    <string name="restaurant_list">Restaurant List</string>
+
+    <!--Restaurant Details Page-->
+    <string name="description">Description</string>
+    <string name="address">Address</string>
+    <string name="reviews">&#160;&#160;Reviews&#160;)</string>
+    <string name="parenthesis_start">(&#160;</string>
+    <string name="number_of_reviews">1000</string>
+
+    <!--Error Messages-->
+    <string name="oops_something_went_wrong">Oops! Something went wrong</string>
+    <string name="error_internet_connection">Please check your internet connection and then retry</string>
+
+    <string name="back">Back</string>
+</resources>

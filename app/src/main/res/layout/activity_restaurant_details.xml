@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.manektech.restaurant.ui.restaurantDetails.RestaurantDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.restaurantDetails.RestaurantDetailsActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="64dp">
+
+            <!--Slider Images (ViewPager)-->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerImages"
+                android:layout_width="0dp"
+                android:layout_height="270dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="96dp"
+                android:background="@drawable/bg_gradient_black_overlay"
+                android:gravity="center_horizontal|bottom"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/viewPagerImages"
+                app:layout_constraintEnd_toEndOf="@+id/viewPagerImages"
+                app:layout_constraintStart_toStartOf="@+id/viewPagerImages">
+
+                <!--Circle Dots Indicator-->
+                <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                    android:id="@+id/slider_dots_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:dampingRatio="0.5"
+                    app:dotsColor="@color/dots_indicator_highlight"
+                    app:dotsSize="10dp"
+                    app:dotsSpacing="4dp"
+                    app:dotsStrokeColor="@color/dots_indicator_default"
+                    app:dotsStrokeWidth="2dp"
+                    app:stiffness="300" />
+
+            </LinearLayout>
+
+            <!--Back Button Text View-->
+            <TextView
+                android:id="@+id/txtBack"
+                android:layout_width="72dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/bg_back_button"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:gravity="center"
+                android:text="@string/back"
+                android:textColor="@color/fix_white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--Text Title Restaurant-->
+            <TextView
+                android:id="@+id/txtRestaurantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@{viewModel.restaurantInfo.title ?? ``}"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPagerImages"
+                tools:text="@string/app_name" />
+
+            <!--Text Phone Number-->
+            <TextView
+                android:id="@+id/txtPhoneNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.restaurantInfo.phoneNo ?? ``}"
+                android:textColor="@color/text_grey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/txtRestaurantTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtRestaurantTitle"
+                tools:text="+91 123456789" />
+
+            <!--Rating Bar-->
+            <com.willy.ratingbar.ScaleRatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/txtRestaurantTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtPhoneNo"
+                app:restaurantRatingDetails="@{viewModel.restaurantInfo}"
+                app:srb_clearRatingEnabled="false"
+                app:srb_clickable="false"
+                app:srb_drawableEmpty="@drawable/ic_star_empty"
+                app:srb_drawableFilled="@drawable/ic_star_filled"
+                app:srb_isIndicator="true"
+                app:srb_minimumStars="0"
+                app:srb_scrollable="false"
+                app:srb_starHeight="18dp"
+                app:srb_starPadding="2dp"
+                app:srb_starWidth="18dp"
+                app:srb_stepSize="1" />
+
+            <!--Section Reviews-->
+            <LinearLayout
+                android:id="@+id/linLayoutReviews"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                app:layout_constraintTop_toTopOf="@+id/ratingBar">
+
+                <!--(-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:text="@string/parenthesis_start"
+                    android:textSize="16sp" />
+
+                <!--Number of reviews-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:text="@string/number_of_reviews"
+                    android:textColor="@color/text_green_bright"
+                    android:textSize="16sp" />
+
+                <!--Reviews Text with parenthesis end-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_semi_bold"
+                    android:text="@string/reviews"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!--Title Description-->
+            <TextView
+                android:id="@+id/txtDescriptionTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/description"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtRestaurantTitle"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+            <!--Value Description-->
+            <TextView
+                android:id="@+id/txtDescriptionValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="@{viewModel.restaurantInfo.getDescriptionToDisplay ?? `N/A`}"
+                android:textColor="@color/text_grey"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDescriptionTitle"
+                app:layout_constraintStart_toStartOf="@+id/txtRestaurantTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescriptionTitle" />
+
+            <!--Title Address-->
+            <TextView
+                android:id="@+id/txtAddressTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/address"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDescriptionTitle"
+                app:layout_constraintStart_toStartOf="@+id/txtDescriptionTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtDescriptionValue" />
+
+            <!--Value Address-->
+            <TextView
+                android:id="@+id/txtAddressValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="@{viewModel.restaurantInfo.getAddressToDisplay ?? `N/A`}"
+                android:textColor="@color/text_grey"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/txtAddressTitle"
+                app:layout_constraintStart_toStartOf="@+id/txtAddressTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtAddressTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#25db94</color>
+    <color name="primary_variant">#25db94</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+
+    <color name="fix_white">#FFFFFF</color>
+
+    <color name="fix_red_error">#F44336</color>
+
+    <!--Text Title Color-->
+    <color name="title_text">#25282f</color>
+
+    <!--View Group section background color (surface color)-->
+    <color name="surface_background">#FFFFFF</color>
+
+    <color name="star_rating">#f3b81d</color>
+
+    <color name="text_grey">#9f9f9f</color>
+
+    <color name="text_green_bright">#2adc96</color>
+
+    <color name="dots_indicator_default">#ced1d2</color>
+    <color name="dots_indicator_highlight">#FFFFFF</color>
+</resources>
