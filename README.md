@@ -8,12 +8,15 @@
 ## :camera_flash: Screenshots
 
 ### Light
-<img width="360" height="680" src="images/light_1.png" alt="Image" >
-<img width="360" height="680" src="images/light_2.png" alt="Image" >
+<img width="360" height="720" src="images/light_1.png" alt="Image" >
+**********************
+<img width="360" height="720" src="images/light_2.png" alt="Image" >
+**********************
 
 ### Dark
-<img width="360" height="680" src="images/dark_1.png" alt="Image" >
-<img width="360" height="680" src="images/dark_2.png" alt="Image" >
+<img width="360" height="720" src="images/dark_1.png" alt="Image" >
+**********************
+<img width="360" height="720" src="images/dark_2.png" alt="Image" >
 
 ## License
 ```
