@@ -34,7 +34,7 @@ data class RestaurantApiModel(
     val city: String?,
     val state: String?,
     val country: String?,
-    @Json(name = "phone_no") val phoneNo: String,
+    @Json(name = "phone_no") val phoneNo: String?,
     @Json(name = "long") val longitude: Double?,
     @Json(name = "lat") val latitude: Double?,
     @Json(name = "created_at") val createdAt: String?,
